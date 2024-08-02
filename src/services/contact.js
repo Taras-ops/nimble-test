@@ -4,8 +4,8 @@ export const contactApi = createApi({
   reducerPath: 'contactApi',
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.PROD
-      ? 'https://live.devnimble.com'
-      : '' + '/api/v1/',
+      ? 'https://live.devnimble.com/api/v1/'
+      : '/api/v1/',
     prepareHeaders: (headers) => {
       headers.set('Access-Control-Allow-Origin', '*');
       headers.set(
