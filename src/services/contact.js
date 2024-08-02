@@ -3,9 +3,15 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const contactApi = createApi({
   reducerPath: 'contactApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: '/api/v1/',
+    baseUrl: import.meta.env.PROD
+      ? 'https://live.devnimble.com'
+      : '' + '/api/v1/',
     prepareHeaders: (headers) => {
       headers.set('Access-Control-Allow-Origin', '*');
+      headers.set(
+        'Access-Control-Allow-Methods',
+        'GET,OPTIONS,PATCH,DELETE,POST,PUT'
+      );
       headers.set('Content-Type', 'application/json');
       headers.set(
         'Authorization',
